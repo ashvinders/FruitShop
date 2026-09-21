@@ -22,6 +22,7 @@ public class BasketApiTests(WebApplicationFactory<Program> factory) :  BaseApiTe
         response.EnsureSuccessStatusCode();
         var createdBasket = await response.Content.ReadFromJsonAsync<BasketSummary>();
         Assert.NotNull(createdBasket);
-        Assert.Equal(2, createdBasket.Items.Count);
+        Assert.Equal(3, createdBasket.Items.Count);
+        Assert.Equal(37.48m, createdBasket.TotalPrice);
     }
 }

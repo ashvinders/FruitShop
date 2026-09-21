@@ -41,7 +41,7 @@ namespace FruitShop.Domain.Tests.Pricing
             // Overlaps: June 1 is within Jan 1 - Jun 30
             var overlapping = SeasonalPrice.New("Overlap", 6, 1, 7, 1, 1.0m);
 
-            Assert.Throws<InvalidOperationException>(() => strategy.AddSeasonalPrice(overlapping));
+            Assert.Throws<BadRequestException>(() => strategy.AddSeasonalPrice(overlapping));
         }
 
         [Fact]
@@ -89,7 +89,7 @@ namespace FruitShop.Domain.Tests.Pricing
             // Make A overlap B by extending A into April
             var updatedA = SeasonalPrice.New("A", 1, 1, 4, 15, 1.0m);
 
-            Assert.Throws<InvalidOperationException>(() => strategy.AdjustSeasonalPrice("A", updatedA));
+            Assert.Throws<BadRequestException>(() => strategy.AdjustSeasonalPrice("A", updatedA));
         }
     }
 }

@@ -3,5 +3,6 @@
   <Project Path="FruitShop.Api/FruitShop.Api.csproj" />
   <Project Path="FruitShop.Domain.Tests/FruitShop.Domain.Tests.csproj" />
   <Project Path="Fruitshop.Domain/FruitShop.Domain.csproj" />
+  <Project Path="FruitShop.Infrastructure.Tests/FruitShop.Infrastructure.Tests.csproj" />
   <Project Path="FruitShop.Infrastructure/FruitShop.Infrastructure.csproj" />
 </Solution>

@@ -147,7 +147,7 @@ public class SeasonalPricingStrategy : PricingStrategy
                     int overlapEnd = Math.Min(ti.end, end);
                     if (overlapStart <= overlapEnd)
                     {
-                        throw new InvalidOperationException($"Season '{price.SeasonName}' overlaps with existing season '{existingPrice.SeasonName}'.");
+                        throw new BadRequestException($"Season '{price.SeasonName}' overlaps with existing season '{existingPrice.SeasonName}'.");
                     }
                 }
             }
