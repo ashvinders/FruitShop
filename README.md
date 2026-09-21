@@ -8,13 +8,13 @@
 
 ## Approach
 
-Domain-first design: domain entities encapsulate behaviour That is, the domain model has immutable properties which can only modified using behavioural methods. The domain model contains the buisness logic and validation with the premise the domain model should be valid at all times. Fruits are dynamic, new fruits maybe added using the Api. A fruit maybe have zero to many pricing strategies. If no strategies are present, it will use a simple Qty*Base price to calcuate the item total. The command resposbility pattern was used to apply mulitple strategies to a product/fruit. Each fruit has unit of measure, validators for each unit of measure are acheived using the decorator pattern (UnitOfMeasureValidator attribute). New strategies can be added be inherting the base class PricingStrategy. 
+Domain-first design: domain entities encapsulate behaviour That is, the domain model has immutable properties which can only modified using behavioural methods. The domain model contains the buisness logic and validation with the premise the domain model should be valid at all times. Fruits are dynamic, new fruits maybe added using the Api. A fruit may have zero or more pricing strategies. If no strategies are present, the system will use a simple Qty*BasePrice to calcuate the item total. The command resposbility pattern was used to apply mulitple strategies to a product/fruit. Each fruit has unit of measure, validators for each unit of measure are acheived using the decorator pattern (UnitOfMeasureValidator attribute). New strategies can be added be inherting the base class PricingStrategy. 
 
 ## Projects
 
 •	FruitShop.Api — the minimal API app/entry point (Program.cs) that:
 >	Adds OpenAPI / Scalar API metadata and an ExceptionHandlingMiddleware.
- >	Maps product and basket routes and seeds the store on startup.
+>	Maps product and basket routes and seeds the store on startup.
 
 •	Fruitshop.Domain — domain model (products/ store/ baskets/ pricing) including:
 >	Fruit, FruitStore, FruitBasket, UnitOfMeasure.
