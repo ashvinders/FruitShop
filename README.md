@@ -30,4 +30,4 @@ Domain-first design: domain entities encapsulate behaviour That is, the domain m
 
 ## Testing
 
-Unit tests have been created for domain and integration layers. Integration tests have been created to test Api. To change the default (seeded) fruits and strategies, the SeedData method in StoreData class can be changed. 
+Unit tests have been created for domain and integration layers. Integration tests have been created to test Api. To change the default (seeded) fruits and strategies, the SeedData method in StoreData class can be changed. Calculation logic can be tested usng the api/baskets (post) end point which takes in a list of fruit & quantities. The fruits must be available in the store. 
