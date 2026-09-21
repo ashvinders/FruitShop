@@ -1,32 +1,32 @@
 # Fruitshop Api
 
 ## Table of Contents
-- [Approach] (#approach)
-- [Project Structure] (#projects)
-- [Testing] (#testing)
+- [Approach] 
+- [Projects] 
+- [Testing]
 
 
 ## Approach
 
-Domain-first design: domain entities encapsulate behavio.r That is, the domain model has immutable properties which can only modified using behavioural methods. The domain model contains the buisness logic and validation with the premise the domain model should be valid at all times. Fruits are dynamic, new fruits maybe added using the Api. A fruit maybe have zero to many pricing strategies. If no strategies are present, it will use a simple Qty*Base price to calcuate the item total. The command resposbility pattern was used to apply mulitple strategies to a product/fruit. Each fruit has unit of measure, validators for each unit of measure are acheived using the decorator pattern (UnitOfMeasureValidator attribute). New strategies can be added be inherting the base class PricingStrategy. 
+Domain-first design: domain entities encapsulate behaviour That is, the domain model has immutable properties which can only modified using behavioural methods. The domain model contains the buisness logic and validation with the premise the domain model should be valid at all times. Fruits are dynamic, new fruits maybe added using the Api. A fruit maybe have zero to many pricing strategies. If no strategies are present, it will use a simple Qty*Base price to calcuate the item total. The command resposbility pattern was used to apply mulitple strategies to a product/fruit. Each fruit has unit of measure, validators for each unit of measure are acheived using the decorator pattern (UnitOfMeasureValidator attribute). New strategies can be added be inherting the base class PricingStrategy. 
 
 ## Projects
 
 •	FruitShop.Api — the minimal API app/entry point (Program.cs) that:
-    •	Adds OpenAPI / Scalar API metadata and an ExceptionHandlingMiddleware.
-    •	Maps product and basket routes and seeds the store on startup.
+>	Adds OpenAPI / Scalar API metadata and an ExceptionHandlingMiddleware.
+ >	Maps product and basket routes and seeds the store on startup.
 
 •	Fruitshop.Domain — domain model (products/ store/ baskets/ pricing) including:
-    •	Fruit, FruitStore, FruitBasket, UnitOfMeasure.
-    •	Pricing domain types and strategies: Discount, BulkDiscountPricingStrategy, SeasonalPrice, SeasonalPricingStrategy (Strategy pattern used for pricing rules).
-    •	Domain guards / exceptions used for validation.
+>	Fruit, FruitStore, FruitBasket, UnitOfMeasure.
+>	Pricing domain types and strategies: Discount, BulkDiscountPricingStrategy, SeasonalPrice, SeasonalPricingStrategy (Strategy pattern used for pricing rules).
+>	Domain guards / exceptions used for validation.
 
 •	FruitShop.Infrastructure — runtime/in-memory store layer:
-    •	StoreData implements IStoreData: in-memory FruitStore, thread-safe list of FruitBaskets, seeding of default fruits and pricing strategies, APIs to add fruits, baskets, items and attach pricing strategies.
-    •	Uses a lock object to prevent concurrent updates to baskets.
+>	StoreData implements IStoreData: in-memory FruitStore, thread-safe list of FruitBaskets, seeding of default fruits and pricing strategies, APIs to add fruits, baskets, items and attach pricing strategies.
+>	Uses a lock object to prevent concurrent updates to baskets.
 
 •	Test projects:
-    •	FruitShop.Infrastructure.Tests, FruitShop.Domain.Tests, FruitShop.Api.Tests — xUnit tests verifying seeding, adding products, basket operations and error conditions.
+>	FruitShop.Infrastructure.Tests, FruitShop.Domain.Tests, FruitShop.Api.Tests — xUnit tests verifying seeding, adding products, basket operations and error conditions.
 
 ## Testing
 
